@@ -7,4 +7,8 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="vivagym_principal_optional">#F04623</color>
+    <color name="vivagym_principal">#FF7D27</color>
+    <color name="vivagym_principal_light">#FFBF98</color>
+    <color name="vivagym_text_blueblack">#1B2033</color>
 </resources>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">VG Socios</string>
+    <string name="vivagym_logo">VivaGym Logo</string>
+    <string name="email_hint">Correo electrónico</string>
+    <string name="password_hint">Contraseña</string>
+    <string name="welcome_vivagym">Bienvenido a VivaGym</string>
+    <string name="glad_see_again">¡Nos alegra volver a verte!</string>
+    <string name="login_button">Iniciar Sesión</string>
+    <string name="good_morning">Buenos días</string>
+    <string name="good_afternoon">Buenas tardes</string>
+    <string name="good_evening">Buenas tardes</string>
+    <string name="good_night">Buenas noches</string>
+    <string name="hello">Hola</string>
+    <string name="club_belong">Perteneces al club</string>
+    <string name="add_booking">Nueva reserva</string>
+    <string name="activity_logo_contentDescription">Logo de la Actividad</string>
+    <string name="recent_activity_title">Actividad Reciente</string>
+    <string name="your_bookings_title">Tus Reservas</string>
+    <string name="with_plan">con el plan</string>
+    <string name="remember_my_information">Recordar mis datos</string>
+    <string name="login_biometric">Iniciar sesión con biometría</string>
+    <string name="no_activity_found">Parece que no tienes ninguna\nactividad reservada. ¿Te animas?</string>
+    <string name="book_activity">Reservar nueva actividad</string>
+</resources>

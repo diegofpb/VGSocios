@@ -1,3 +1,25 @@
 <resources>
-    <string name="app_name">VGSocios</string>
+    <string name="app_name">VG Members</string>
+    <string name="welcome_vivagym">Welcome to VivaGym</string>
+    <string name="glad_see_again">We are glad to see you again!</string>
+    <string name="email_hint">E-Mail</string>
+    <string name="password_hint">Password</string>
+    <string name="vivagym_logo">VivaGym Logo</string>
+    <string name="login_button">Login</string>
+    <string name="good_morning">Good morning</string>
+    <string name="good_afternoon">Good afternoon</string>
+    <string name="good_evening">Good evening</string>
+    <string name="good_night">Good night</string>
+    <string name="hello">Hello</string>
+    <string name="welcome_user" translatable="false">%1$s%2$s</string>
+    <string name="club_belong">You belong to</string>
+    <string name="add_booking">New Booking</string>
+    <string name="activity_logo_contentDescription">Activity Logo</string>
+    <string name="recent_activity_title">Recent Activity</string>
+    <string name="your_bookings_title">Your Bookings</string>
+    <string name="with_plan">with plan</string>
+    <string name="remember_my_information">Remember my information</string>
+    <string name="login_biometric">Login with fingerprint</string>
+    <string name="no_activity_found">It looks like you don\'t have any\nbooked activities. You dare?</string>
+    <string name="book_activity">Book new activity</string>
 </resources>
