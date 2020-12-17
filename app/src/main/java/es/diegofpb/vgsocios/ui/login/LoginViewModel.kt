@@ -9,6 +9,9 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import es.diegofpb.vgsocios.data.entities.Login
 import es.diegofpb.vgsocios.data.remote.repositories.VGRepository
+import es.diegofpb.vgsocios.utils.Constants.VG_USER_CLUB_NO
+import es.diegofpb.vgsocios.utils.Constants.VG_USER_CONTRACT_NO
+import es.diegofpb.vgsocios.utils.Constants.VG_USER_CONTRACT_PERSON_ID
 import es.diegofpb.vgsocios.utils.Constants.VG_USER_TOKEN
 import es.diegofpb.vgsocios.utils.Resource
 import es.diegofpb.vgsocios.utils.Status
@@ -48,6 +51,10 @@ class LoginViewModel @ViewModelInject constructor(
             if (loginData.status == Status.SUCCESS) {
                 _loginResponse.postValue(Resource.success(loginData.data))
                 sharedPreferences.edit().putString(VG_USER_TOKEN, loginData.data!!.token).apply()
+                repository.saveToken()
+                sharedPreferences.edit().putInt(VG_USER_CONTRACT_PERSON_ID, loginData.data.contractPersonId).apply()
+                sharedPreferences.edit().putInt(VG_USER_CONTRACT_NO, loginData.data.contractNo).apply()
+                sharedPreferences.edit().putInt(VG_USER_CLUB_NO, loginData.data.clubNo).apply()
             } else {
                 _loginResponse.postValue(Resource.error(loginData.message.toString(), null))
             }

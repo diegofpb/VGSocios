@@ -1,0 +1,50 @@
+package es.diegofpb.vgsocios.data.remote.responses
+
+import com.google.gson.annotations.SerializedName
+
+data class MembershipInfoResponse(
+	val gender: String? = null,
+	val documentType: Int? = null,
+	val mobileNumber: String? = null,
+	@SerializedName("contractstatuscode") val contractStatusCode: String? = null,
+	@SerializedName("schedcanceldate") val schedCancelDate: Any? = null,
+	@SerializedName("startdate")val startDate: String? = null,
+	val idNo: String? = null,
+	val provisCustomerId: Int? = null,
+	val documentTypeDesc: String? = null,
+	val emailAddress: String? = null,
+	@SerializedName("freezestartdate")val freezeStartDate: Any? = null,
+	val pin: String? = null,
+	val surname: String? = null,
+	val productTierNo: Int? = null,
+	val currentFee: Double? = null,
+	val address4: String? = null,
+	@SerializedName("cardpictureimage")val cardPictureImage: Any? = null,
+	val isContractOrFixedBadDebtCancel: Boolean? = null,
+	@SerializedName("productdesc")val productDesc: String? = null,
+	@SerializedName("freezeenddate")val freezeEndDate: Any? = null,
+	@SerializedName("schedcancelauthdate")val schedCancelAuthDate: Any? = null,
+	@SerializedName("cancelreasondesc") val cancelReasonDesc: Any? = null,
+	val address3: String? = null,
+	val address2: String? = null,
+	val address1: String? = null,
+	@SerializedName("contractstatus") val contractStatus: String? = null,
+	@SerializedName("cardpictureimageDb") val cardPictureImageDb: Any? = null,
+	val dateOfBirth: String? = null,
+	val userIdentityId: Any? = null,
+	val membershipNo: Int? = null,
+	val questionnaireCancelAnswer: Any? = null,
+	val firstName: String? = null,
+	val productCode: String? = null,
+	@SerializedName("enddate") val endDate: Any? = null,
+	@SerializedName("purchasedate") val purchaseDate: String? = null,
+	@SerializedName("clubdesc") val clubDesc: String? = null,
+	val clubTierNo: Int? = null,
+	val postCode: String? = null,
+	val studentNo: String? = null,
+	val region: Int? = null,
+
+	val errorCode: Int? = null,
+	val error: String?
+)
+

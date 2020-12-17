@@ -8,16 +8,12 @@
     <fragment
         android:id="@+id/resumeFragment"
         android:name="es.diegofpb.vgsocios.ResumeFragment"
-        android:label="fragment_resume"
+        android:label="Home"
         tools:layout="@layout/fragment_resume" />
     <fragment
         android:id="@+id/profileFragment"
         android:name="es.diegofpb.vgsocios.ProfileFragment"
-        android:label="fragment_profile"
+        android:label="Preferencias"
         tools:layout="@layout/fragment_profile" />
-    <activity
-        android:id="@+id/loginActivity"
-        android:name="es.diegofpb.vgsocios.ui.login.LoginActivity"
-        android:label="activity_login"
-        tools:layout="@layout/activity_login" />
+
 </navigation>

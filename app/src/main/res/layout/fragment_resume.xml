@@ -1,14 +1,197 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ResumeFragment">
+    tools:context=".ResumeFragment"
+    android:background="@color/white">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/helloTextLayout"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="Home Fragment" />
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="20dp"
+        android:layout_marginVertical="10dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <!-- Welcome Message -->
+        <TextView
+            android:id="@+id/helloText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/quicksand_medium"
+            android:text="Hello,"
+            android:textColor="@color/vivagym_text_blueblack"
+            android:textSize="24sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/userName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:fontFamily="@font/quicksand"
+            android:text="Peter"
+            android:textColor="@color/vivagym_text_blueblack"
+            android:textSize="24sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@id/helloText"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <!-- User Info -->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/userInfoLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="20dp"
+        android:layout_marginVertical="2dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/helloTextLayout">
+
+
+        <TextView
+            android:id="@+id/clubLocationDescription"
+            android:layout_width="wrap_content"
+            android:layout_height="20dp"
+            android:text="@string/club_belong"
+            android:fontFamily="@font/quicksand"
+            android:textColor="@color/vivagym_text_blueblack"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/userInfoLayout" />
+
+        <TextView
+            android:id="@+id/clubLocation"
+            android:layout_width="wrap_content"
+            android:layout_height="20dp"
+            android:layout_marginStart="5dp"
+            android:text="Gimnasio"
+            android:textColor="@color/vivagym_text_blueblack"
+            android:textStyle="bold"
+            android:fontFamily="@font/quicksand"
+            app:layout_constraintStart_toEndOf="@+id/clubLocationDescription"
+            app:layout_constraintTop_toTopOf="@+id/userInfoLayout" />
+
+        <TextView
+            android:id="@+id/withPlanDescription"
+            android:layout_width="wrap_content"
+            android:layout_height="20dp"
+            android:text="@string/with_plan"
+            android:textColor="@color/vivagym_text_blueblack"
+            android:fontFamily="@font/quicksand"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/clubLocationDescription" />
+
+        <TextView
+            android:id="@+id/productDescription"
+            android:layout_width="wrap_content"
+            android:layout_height="20dp"
+            android:layout_marginStart="5dp"
+            android:text="Contrato"
+            android:textColor="@color/vivagym_text_blueblack"
+            android:textStyle="bold"
+            android:fontFamily="@font/quicksand"
+
+            app:layout_constraintStart_toEndOf="@+id/withPlanDescription"
+            app:layout_constraintTop_toBottomOf="@+id/clubLocationDescription" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    <!-- Bookings -->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="20dp"
+        android:layout_marginVertical="25dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/userInfoLayout">
+
+        <TextView
+            android:id="@+id/tusReservasTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:fontFamily="@font/quicksand_medium"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            android:textColor="@color/vivagym_text_blueblack"
+            android:text="@string/your_bookings_title"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <com.todkars.shimmer.ShimmerRecyclerView
+            android:id="@+id/bookingRecyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginStart="2dp"
+            android:layout_marginBottom="2dp"
+            android:textColor="@color/vivagym_text_blueblack"
+            app:shimmer_recycler_item_count="3"
+            app:shimmer_recycler_layout="@layout/booking_card_holder_view"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tusReservasTextView" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <!-- Recent Activity Chart -->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/chartConstraintLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="20dp"
+        android:layout_marginVertical="25dp"
+        android:visibility="invisible"
+        app:layout_constraintTop_toBottomOf="@+id/constraintLayout"
+        tools:layout_editor_absoluteX="20dp">
+
+
+        <TextView
+            android:id="@+id/recentActivityTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/quicksand_medium"
+            android:text="@string/recent_activity_title"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            android:textColor="@color/vivagym_text_blueblack"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <com.github.mikephil.charting.charts.BarChart
+            android:id="@+id/chart"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="8dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/recentActivityTitle" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <!-- Floating Button -->
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fab"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="end|bottom"
+        android:layout_margin="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="16dp"
+        android:contentDescription="@string/add_booking"
+        android:tooltipText="@string/add_booking"
+        android:clickable="true"
+        android:src="@drawable/ic_add_white_18dp"
+        app:tint="@color/white"
+        app:backgroundTint="@color/vivagym_principal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
