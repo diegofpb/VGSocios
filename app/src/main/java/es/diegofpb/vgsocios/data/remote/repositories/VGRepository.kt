@@ -2,14 +2,12 @@ package es.diegofpb.vgsocios.data.remote.repositories
 
 import android.util.Log
 import es.diegofpb.vgsocios.data.entities.BookingInfo
+import es.diegofpb.vgsocios.data.entities.ClubInfo
 import es.diegofpb.vgsocios.data.entities.Login
 import es.diegofpb.vgsocios.data.entities.MembershipInfo
 import es.diegofpb.vgsocios.data.remote.ApiManager
 import es.diegofpb.vgsocios.data.remote.requests.UserLoginRequest
-import es.diegofpb.vgsocios.data.remote.responses.mapToBookingInfo
-import es.diegofpb.vgsocios.data.remote.responses.mapToError
-import es.diegofpb.vgsocios.data.remote.responses.mapToLogin
-import es.diegofpb.vgsocios.data.remote.responses.mapToMembershipInfo
+import es.diegofpb.vgsocios.data.remote.responses.*
 import es.diegofpb.vgsocios.utils.Resource
 import es.diegofpb.vgsocios.utils.Status
 import java.lang.Exception
@@ -78,6 +76,27 @@ class VGRepository @Inject constructor(private val apiManager: ApiManager) {
             }
         }
         Log.d("VGRepository-getBookings", "Out")
+        return Resource(Status.ERROR, null, "Error al contactar con el servicio.")
+    }
+
+    suspend fun getAvailableClubs(contractNo: Int, ) : Resource<List<ClubInfo>> {
+        val availableClubsResponse = apiManager.getListOfClubsByContractNo(contractNo)
+
+        if (availableClubsResponse.isSuccessful){
+            availableClubsResponse.body()?.let { response ->
+                return try {
+                    val clubsList = ArrayList<ClubInfo>()
+                    response.forEach {
+                        clubsList.add(it.mapToClubInfo())
+                    }
+                    Resource(Status.SUCCESS, clubsList, "OK")
+                } catch (ex: Exception) {
+                    val bookingError = response.mapToError()
+                    Resource(Status.ERROR, null, bookingError.error)
+                }
+            }
+        }
+        Log.d("VGRepository-getAvailableClubs", "Out")
         return Resource(Status.ERROR, null, "Error al contactar con el servicio.")
     }
 }

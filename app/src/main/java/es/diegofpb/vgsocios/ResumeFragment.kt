@@ -1,5 +1,6 @@
 package es.diegofpb.vgsocios
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -14,6 +15,8 @@ import androidx.recyclerview.widget.RecyclerView
 import dagger.hilt.android.AndroidEntryPoint
 import es.diegofpb.vgsocios.adapters.BookingAdapter
 import es.diegofpb.vgsocios.adapters.NoBookingAdapter
+import es.diegofpb.vgsocios.ui.booking.NewBookingActivity
+import es.diegofpb.vgsocios.ui.main.MainActivity
 import es.diegofpb.vgsocios.ui.main.fragments.ResumeViewModel
 import es.diegofpb.vgsocios.utils.Status
 import kotlinx.android.synthetic.main.fragment_resume.*
@@ -100,6 +103,9 @@ class ResumeFragment : Fragment() {
             }
         })
 
+        view.fab.setOnClickListener {
+            startActivity(Intent(context, NewBookingActivity::class.java))
+        }
 
         Log.d("ResumeFragment-onCreateView", "End")
 

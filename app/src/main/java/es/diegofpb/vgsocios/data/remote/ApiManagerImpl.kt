@@ -3,6 +3,7 @@ package es.diegofpb.vgsocios.data.remote
 import android.content.SharedPreferences
 import es.diegofpb.vgsocios.data.remote.requests.UserLoginRequest
 import es.diegofpb.vgsocios.data.remote.responses.BookingResponse
+import es.diegofpb.vgsocios.data.remote.responses.ClubListForContractIdResponse
 import es.diegofpb.vgsocios.data.remote.responses.MembershipInfoResponse
 import es.diegofpb.vgsocios.data.remote.responses.UserLoginResponse
 import es.diegofpb.vgsocios.utils.Constants.VG_USER_TOKEN
@@ -29,6 +30,9 @@ class ApiManagerImpl @Inject constructor(
     override suspend fun getBookings(contractPersonId: Int, fromDate: String, toDate: String):
             Response<Array<BookingResponse>> =
         apiService.getBookings("Basic $token", contractPersonId, fromDate, toDate)
+
+    override suspend fun getListOfClubsByContractNo(contractNo: Int): Response<Array<ClubListForContractIdResponse>> =
+        apiService.getListAllClubInfoForBookingByContractNo("Basic $token", contractNo)
 
 
 }
