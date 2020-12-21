@@ -28,13 +28,13 @@
             android:id="@+id/bookingTitle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
             android:fontFamily="@font/quicksand_medium"
             android:text="@string/book_activity"
             android:textColor="@color/white"
             android:textSize="18sp"
             app:layout_constraintBottom_toBottomOf="@+id/bookingActivityLogo"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.3"
             app:layout_constraintStart_toEndOf="@+id/bookingActivityLogo"
             app:layout_constraintTop_toTopOf="@+id/bookingActivityLogo" />
 
@@ -46,7 +46,6 @@
             android:text="@string/no_activity_found"
             android:textColor="@color/white"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
 
 

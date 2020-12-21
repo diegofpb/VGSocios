@@ -1,5 +1,6 @@
 package es.diegofpb.vgsocios.data.remote.responses
 
+import es.diegofpb.vgsocios.data.entities.BookingInfo
 import es.diegofpb.vgsocios.data.entities.Login
 import es.diegofpb.vgsocios.data.entities.MembershipInfo
 
@@ -25,4 +26,18 @@ fun MembershipInfoResponse.mapToMembershipInfo() = MembershipInfo(
 fun MembershipInfoResponse.mapToError() = ErrorResponse(
     error = error,
     errorCode = errorCode
+)
+
+fun BookingResponse.mapToBookingInfo() = BookingInfo(
+    classTypeName = classTypeName,
+    clubDesc = clubDesc,
+    displayDate = displayDate,
+    bookingDate = bookingDate,
+    clubClassId = clubClassId,
+    isTimeBased = isTimeBased
+)
+
+fun Array<BookingResponse>.mapToError() = ErrorResponse(
+    error = "No ha sido posible deserializar el Array",
+    errorCode = 9999
 )

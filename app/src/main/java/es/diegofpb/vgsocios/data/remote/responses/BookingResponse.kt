@@ -8,5 +8,8 @@ data class BookingResponse(
     @SerializedName("displayDate") val displayDate: String? = null,
     @SerializedName("bookingDate") val bookingDate: String? = null,
     @SerializedName("clubClassId") val clubClassId: Int? = null,
-    @SerializedName("isTimeBased") val isTimeBased: Boolean? = null
+    @SerializedName("isTimeBased") val isTimeBased: Boolean? = null,
+
+    val errorCode: Int? = null,
+    val error: String?
 )

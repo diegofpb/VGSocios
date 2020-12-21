@@ -1,10 +1,12 @@
 package es.diegofpb.vgsocios.data.remote.repositories
 
 import android.util.Log
+import es.diegofpb.vgsocios.data.entities.BookingInfo
 import es.diegofpb.vgsocios.data.entities.Login
 import es.diegofpb.vgsocios.data.entities.MembershipInfo
 import es.diegofpb.vgsocios.data.remote.ApiManager
 import es.diegofpb.vgsocios.data.remote.requests.UserLoginRequest
+import es.diegofpb.vgsocios.data.remote.responses.mapToBookingInfo
 import es.diegofpb.vgsocios.data.remote.responses.mapToError
 import es.diegofpb.vgsocios.data.remote.responses.mapToLogin
 import es.diegofpb.vgsocios.data.remote.responses.mapToMembershipInfo
@@ -53,8 +55,29 @@ class VGRepository @Inject constructor(private val apiManager: ApiManager) {
                 }
             }
         }
-        Log.d("VGRepository-login", "Out")
+        Log.d("VGRepository-getViewMembershipInfo", "Out")
         return Resource(Status.ERROR, null, "Error al contactar con el servicio.")
     }
 
+
+    suspend fun getBookings(contractPersonId: Int, fromDate: String, toDate: String) : Resource<List<BookingInfo>> {
+        val bookingsResponse = apiManager.getBookings(contractPersonId, fromDate, toDate)
+
+        if (bookingsResponse.isSuccessful){
+            bookingsResponse.body()?.let { response ->
+                return try {
+                    val bookingList = ArrayList<BookingInfo>()
+                    response.forEach {
+                        bookingList.add(it.mapToBookingInfo())
+                    }
+                    Resource(Status.SUCCESS, bookingList, "OK")
+                } catch (ex: Exception) {
+                    val bookingError = response.mapToError()
+                    Resource(Status.ERROR, null, bookingError.error)
+                }
+            }
+        }
+        Log.d("VGRepository-getBookings", "Out")
+        return Resource(Status.ERROR, null, "Error al contactar con el servicio.")
+    }
 }
