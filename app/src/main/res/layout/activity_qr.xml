@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/codigoQRLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    tools:context=".ui.main.QrActivity">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/codigoQrGroup"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="20dp"
+        android:layout_marginVertical="10dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+
+        <TextView
+            android:id="@+id/codigoQRTittle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:fontFamily="@font/quicksand_medium"
+            android:gravity="center"
+            android:text="Código QR"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            android:textColor="@color/vivagym_text_blueblack"
+            android:textSize="24sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/qrView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:contentDescription="QRIcon"
+            android:src="@drawable/ic_qr_code_24"
+
+            app:layout_constraintBottom_toBottomOf="@id/codigoQRTittle"
+            app:layout_constraintEnd_toEndOf="@id/codigoQrGroup"
+            app:layout_constraintTop_toTopOf="@id/codigoQRTittle" />
+
+        <TextView
+            android:id="@+id/codigoQRDescription"
+            android:layout_width="match_parent"
+            android:layout_height="71dp"
+            android:layout_marginTop="20dp"
+            android:fontFamily="@font/quicksand"
+            android:text="Este código te permite acceder y salir del club. Es personal e intransferible. Haz un uso responsable del mismo."
+            android:textColor="@color/vivagym_text_blueblack"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:justificationMode="inter_word"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/codigoQRTittle" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <ImageView
+        android:id="@+id/codigoQRImageView"
+        android:layout_width="200dp"
+        android:minWidth="200dp"
+        android:minHeight="200dp"
+        android:layout_height="200dp"
+        android:layout_marginTop="28dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/codigoQrGroup"
+        app:srcCompat="@drawable/circle_cropped__1_" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/codigoPinGroup"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="20dp"
+        android:layout_marginVertical="20dp"
+        app:layout_constraintStart_toStartOf="@+id/codigoQRImageView"
+        app:layout_constraintTop_toBottomOf="@+id/codigoQRImageView">
+
+
+        <TextView
+            android:id="@+id/codigoPintTittle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:fontFamily="@font/quicksand_medium"
+            android:gravity="center"
+            android:text="Código PIN"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            android:textColor="@color/vivagym_text_blueblack"
+            android:textSize="24sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/pinView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:contentDescription="QRIcon"
+            android:src="@drawable/ic_dialpad_white_18dp"
+            app:layout_constraintBottom_toBottomOf="@id/codigoPintTittle"
+            app:layout_constraintEnd_toEndOf="@id/codigoPinGroup"
+            app:layout_constraintTop_toTopOf="@id/codigoPintTittle" />
+
+        <TextView
+            android:id="@+id/codigoPinDescription"
+            android:layout_width="match_parent"
+            android:layout_height="71dp"
+            android:layout_marginTop="15dp"
+            android:textSize="40dp"
+            android:fontFamily="@font/abel"
+            android:justificationMode="inter_word"
+            android:textAlignment="center"
+            tools:text="1 2 3 4 5 6 7 8"
+            android:textColor="@color/vivagym_text_blueblack"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/codigoPintTittle" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

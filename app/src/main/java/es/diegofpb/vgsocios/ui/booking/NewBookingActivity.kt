@@ -1,5 +1,6 @@
 package es.diegofpb.vgsocios.ui.booking
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import android.util.Log
 import android.view.Menu
@@ -7,26 +8,28 @@ import android.widget.PopupMenu
 import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.view.menu.MenuBuilder
 import androidx.lifecycle.lifecycleScope
 import dagger.hilt.android.AndroidEntryPoint
 import es.diegofpb.vgsocios.R
 import es.diegofpb.vgsocios.utils.Status
 import kotlinx.android.synthetic.main.activity_new_booking.*
-import kotlinx.android.synthetic.main.fragment_resume.*
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+
 
 @AndroidEntryPoint
 class NewBookingActivity : AppCompatActivity() {
 
     private val newBookingViewModel: NewBookingViewModel by viewModels()
 
+    @SuppressLint("RestrictedApi")
     override fun onCreate(savedInstanceState: Bundle?) {
         Log.d("NewBookingActivity", "On create")
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_new_booking)
 
-        val menu = PopupMenu(this, window.decorView.rootView)
+        val menuPer: Menu = MenuBuilder(applicationContext)
 
         lifecycleScope.launch(Dispatchers.Main) {
             newBookingViewModel.getAvailableClubs()
@@ -44,8 +47,8 @@ class NewBookingActivity : AppCompatActivity() {
                 Status.SUCCESS -> {
                     Log.d("NewBookingActivity-clubsInfo", "SUCCESS")
                     var i = Menu.NONE
-                    it.data!!.forEach {club ->
-                        menu.menu.add(Menu.NONE, club.clubNo!!, i, club.clubName)
+                    it.data!!.forEach { club ->
+                        menuPer.add(Menu.NONE, club.clubNo!!, i, club.clubName)
                         i++
                     }
                 }
@@ -54,11 +57,11 @@ class NewBookingActivity : AppCompatActivity() {
 
 
         clubSelectorEditText.setOnClickListener {
-            menu.show()
+            //menuPer.show()
         }
 
         clubSelector.setOnClickListener{
-            menu.show()
+            //popMenu.show()
         }
 
         dateSelectorEditText.setOnClickListener {

@@ -13,7 +13,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.VGSocios">
-        <activity android:name=".ui.booking.NewBookingActivity"></activity>
+        <activity android:name=".ui.main.QrActivity"></activity>
+        <activity android:name=".ui.booking.NewBookingActivity" />
         <activity
             android:name=".ui.splashscreen.SplashScreenActivity"
             android:theme="@style/Theme.VGSocios.NoActionBar">

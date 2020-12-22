@@ -1,7 +1,8 @@
 package es.diegofpb.vgsocios.ui.main
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.NavController
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
@@ -10,11 +11,15 @@ import androidx.navigation.ui.setupWithNavController
 import dagger.hilt.android.AndroidEntryPoint
 import es.diegofpb.vgsocios.R
 import kotlinx.android.synthetic.main.activity_main.*
+import kotlin.system.exitProcess
+
 
 @AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
 
     private lateinit var navController: NavController
+    private var pressedTime: Long = 0
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -31,5 +36,15 @@ class MainActivity : AppCompatActivity() {
 
     override fun onSupportNavigateUp(): Boolean {
         return navController.navigateUp() ||super.onSupportNavigateUp()
+    }
+
+    override fun onBackPressed() {
+        if (pressedTime + 2000 > System.currentTimeMillis()) {
+            moveTaskToBack(true);
+            exitProcess(-1)
+        } else {
+            Toast.makeText(baseContext, "Pulsa atrás de nuevo para salir.", Toast.LENGTH_SHORT).show()
+        }
+        pressedTime = System.currentTimeMillis()
     }
 }

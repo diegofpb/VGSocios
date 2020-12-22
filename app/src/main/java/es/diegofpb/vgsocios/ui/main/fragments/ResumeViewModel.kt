@@ -1,13 +1,17 @@
 package es.diegofpb.vgsocios.ui.main.fragments
 
 import android.content.SharedPreferences
+import android.graphics.Bitmap
 import android.util.Log
 import android.util.Xml
+import androidx.core.view.ViewCompat
 import androidx.hilt.lifecycle.ViewModelInject
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.google.zxing.BarcodeFormat
+import com.google.zxing.qrcode.QRCodeWriter
 import es.diegofpb.vgsocios.data.entities.BookingInfo
 import es.diegofpb.vgsocios.data.entities.MembershipInfo
 import es.diegofpb.vgsocios.data.remote.repositories.VGRepository
@@ -18,6 +22,7 @@ import kotlinx.coroutines.launch
 import java.net.URLEncoder
 import java.time.LocalDateTime
 import java.time.ZoneId
+
 
 class ResumeViewModel @ViewModelInject constructor(
     private val repository: VGRepository,
@@ -34,14 +39,26 @@ class ResumeViewModel @ViewModelInject constructor(
         Log.d("ResumeViewModel-getMembershipInfo", "Enter")
         _membershipInfo.postValue(Resource.loading(null))
         viewModelScope.launch {
-            val membershipInfoData = repository.getViewMembershipInfo(sharedPreferences.getInt(
-                Constants.VG_USER_CONTRACT_PERSON_ID, Int.MAX_VALUE))
+            val membershipInfoData = repository.getViewMembershipInfo(
+                sharedPreferences.getInt(
+                    Constants.VG_USER_CONTRACT_PERSON_ID, Int.MAX_VALUE
+                )
+            )
             if (membershipInfoData.status == Status.SUCCESS) {
                 Log.d("ResumeViewModel-getMembershipInfo", "Success")
+                sharedPreferences.edit().putInt(Constants.VG_USER_PROVIS_CUSTOMER_ID,
+                    membershipInfoData.data!!.provisCustomerId!!).apply()
+                sharedPreferences.edit().putString(Constants.VG_USER_PIN,
+                    membershipInfoData.data.pin!!).apply()
                 _membershipInfo.postValue(Resource.success(membershipInfoData.data))
             } else {
                 Log.d("ResumeViewModel-getMembershipInfo", "Error")
-                _membershipInfo.postValue(Resource.error(membershipInfoData.message.toString(), null))
+                _membershipInfo.postValue(
+                    Resource.error(
+                        membershipInfoData.message.toString(),
+                        null
+                    )
+                )
             }
         }
         Log.d("ResumeViewModel-getMembershipInfo", "Out")
@@ -50,12 +67,21 @@ class ResumeViewModel @ViewModelInject constructor(
 
     suspend fun getBookings(fromDate: LocalDateTime, toDate: LocalDateTime) {
         Log.d("ResumeViewModel-getBookings", "Enter")
-        val fromDateEncoded = URLEncoder.encode(fromDate.toString() + fromDate.atZone(ZoneId.systemDefault()).offset, Xml.Encoding.UTF_8.name)
-        val toDateEncoded = URLEncoder.encode(toDate.toString() + toDate.atZone(ZoneId.systemDefault()).offset, Xml.Encoding.UTF_8.name)
+        val fromDateEncoded = URLEncoder.encode(
+            fromDate.toString() + fromDate.atZone(ZoneId.systemDefault()).offset,
+            Xml.Encoding.UTF_8.name
+        )
+        val toDateEncoded = URLEncoder.encode(
+            toDate.toString() + toDate.atZone(ZoneId.systemDefault()).offset,
+            Xml.Encoding.UTF_8.name
+        )
         _bookingsInfo.postValue(Resource.loading(null))
         viewModelScope.launch {
-            val bookingsInfoData = repository.getBookings(sharedPreferences.getInt(
-                Constants.VG_USER_CONTRACT_PERSON_ID, Int.MAX_VALUE),fromDateEncoded, toDateEncoded)
+            val bookingsInfoData = repository.getBookings(
+                sharedPreferences.getInt(
+                    Constants.VG_USER_CONTRACT_PERSON_ID, Int.MAX_VALUE
+                ), fromDateEncoded, toDateEncoded
+            )
             if (bookingsInfoData.status == Status.SUCCESS) {
                 Log.d("ResumeViewModel-getBookings", "Success")
                 _bookingsInfo.postValue(Resource.success(bookingsInfoData.data))

@@ -4,6 +4,8 @@ data class MembershipInfo(
 	val firstName: String? = null,
 	val clubDesc: String? = null,
 	val productDesc: String? = null,
-	val startDate: String? = null
+	val startDate: String? = null,
+	val provisCustomerId: Int? = null,
+	val pin: String? = null,
 )
 

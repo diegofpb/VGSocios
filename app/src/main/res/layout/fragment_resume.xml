@@ -42,6 +42,16 @@
             app:layout_constraintStart_toEndOf="@id/helloText"
             app:layout_constraintTop_toTopOf="parent" />
 
+        <ImageView
+            android:id="@+id/qrView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:contentDescription="QRIcon"
+            android:src="@drawable/ic_qr_code_24"
+
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"/>
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
@@ -58,7 +68,7 @@
 
 
         <TextView
-            android:id="@+id/clubLocationDescription"
+            android:id="@+id/codigoQRDescription"
             android:layout_width="wrap_content"
             android:layout_height="20dp"
             android:text="@string/club_belong"
@@ -76,7 +86,7 @@
             android:textColor="@color/vivagym_text_blueblack"
             android:textStyle="bold"
             android:fontFamily="@font/quicksand"
-            app:layout_constraintStart_toEndOf="@+id/clubLocationDescription"
+            app:layout_constraintStart_toEndOf="@+id/codigoQRDescription"
             app:layout_constraintTop_toTopOf="@+id/userInfoLayout" />
 
         <TextView
@@ -87,7 +97,7 @@
             android:textColor="@color/vivagym_text_blueblack"
             android:fontFamily="@font/quicksand"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/clubLocationDescription" />
+            app:layout_constraintTop_toBottomOf="@+id/codigoQRDescription" />
 
         <TextView
             android:id="@+id/productDescription"
@@ -100,7 +110,7 @@
             android:fontFamily="@font/quicksand"
 
             app:layout_constraintStart_toEndOf="@+id/withPlanDescription"
-            app:layout_constraintTop_toBottomOf="@+id/clubLocationDescription" />
+            app:layout_constraintTop_toBottomOf="@+id/codigoQRDescription" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
@@ -117,7 +127,7 @@
         app:layout_constraintTop_toBottomOf="@+id/userInfoLayout">
 
         <TextView
-            android:id="@+id/tusReservasTextView"
+            android:id="@+id/codigoQRTittle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="10dp"
@@ -139,7 +149,7 @@
             app:shimmer_recycler_item_count="3"
             app:shimmer_recycler_layout="@layout/booking_card_holder_view"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tusReservasTextView" />
+            app:layout_constraintTop_toBottomOf="@id/codigoQRTittle" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

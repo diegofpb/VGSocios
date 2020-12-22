@@ -9,4 +9,9 @@ object Constants {
     const val VG_USER_CONTRACT_NO = "VG_USER_CONTRACT_NO"
     const val VG_USER_CLUB_NO = "VG_USER_CLUB_NO"
 
+    const val VG_USER_PIN = "VG_USER_PIN"
+    const val VG_USER_PROVIS_CUSTOMER_ID = "VG_USER_PROVIS_CUSTOMER_ID"
+
+
+
 }

@@ -17,6 +17,7 @@ import es.diegofpb.vgsocios.adapters.BookingAdapter
 import es.diegofpb.vgsocios.adapters.NoBookingAdapter
 import es.diegofpb.vgsocios.ui.booking.NewBookingActivity
 import es.diegofpb.vgsocios.ui.main.MainActivity
+import es.diegofpb.vgsocios.ui.main.QrActivity
 import es.diegofpb.vgsocios.ui.main.fragments.ResumeViewModel
 import es.diegofpb.vgsocios.utils.Status
 import kotlinx.android.synthetic.main.fragment_resume.*
@@ -105,6 +106,10 @@ class ResumeFragment : Fragment() {
 
         view.fab.setOnClickListener {
             startActivity(Intent(context, NewBookingActivity::class.java))
+        }
+
+        view.qrView.setOnClickListener {
+            startActivity(Intent(context, QrActivity::class.java))
         }
 
         Log.d("ResumeFragment-onCreateView", "End")

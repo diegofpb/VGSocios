@@ -21,7 +21,9 @@ fun MembershipInfoResponse.mapToMembershipInfo() = MembershipInfo(
     firstName = firstName,
     clubDesc = clubDesc,
     productDesc = productDesc,
-    startDate = startDate
+    startDate = startDate,
+    provisCustomerId = provisCustomerId,
+    pin = pin
 )
 
 fun MembershipInfoResponse.mapToError() = ErrorResponse(
