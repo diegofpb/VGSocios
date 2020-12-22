@@ -22,4 +22,6 @@
     <string name="login_biometric">Iniciar sesión con biometría</string>
     <string name="no_activity_found">Parece que no tienes ninguna\nactividad reservada. ¿Te animas?</string>
     <string name="book_activity">Reservar nueva actividad</string>
+    <string name="hi_welcome_msg">¡Hola!</string>
+    <string name="icono_c_digo_qr">Icono de Código QR</string>
 </resources>

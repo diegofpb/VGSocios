@@ -12,6 +12,7 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.facebook.shimmer.ShimmerFrameLayout
 import dagger.hilt.android.AndroidEntryPoint
 import es.diegofpb.vgsocios.adapters.BookingAdapter
 import es.diegofpb.vgsocios.adapters.NoBookingAdapter
@@ -41,10 +42,11 @@ class ResumeFragment : Fragment() {
     ): View? {
 
         Log.d("ResumeFragment-onCreateView", "Inicio")
-
         val view = inflater.inflate(R.layout.fragment_resume, container, false)
-
+        view.helloText.text = getString(R.string.welcome_user, getGreetingMessage(), "")
         view.bookingRecyclerView.showShimmer()
+
+
         viewManager = LinearLayoutManager(context, RecyclerView.HORIZONTAL, false)
 
         lifecycleScope.launch(Dispatchers.Main) {
@@ -61,11 +63,21 @@ class ResumeFragment : Fragment() {
                     Toast.makeText(context, it.message, Toast.LENGTH_LONG).show()
                 }
                 Status.SUCCESS -> {
+                    val clubLocationShimmerLayout: ShimmerFrameLayout = shimmerClubLocation
+                    val planDescriptionShimmerLayout: ShimmerFrameLayout = shimmerPlanDescription
+
                     Log.d("ResumeFragment-membershipInfo", "SUCCESS")
                     helloText.text = getString(R.string.welcome_user, getGreetingMessage(), ",")
                     userName.text = it.data!!.firstName
                     clubLocation.text = it.data.clubDesc
+                    clubLocation.visibility = View.VISIBLE
+                    clubLocationShimmerLayout.visibility = View.INVISIBLE
+                    clubLocationShimmerLayout.stopShimmer()
+
                     productDescription.text = it.data.productDesc
+                    productDescription.visibility = View.VISIBLE
+                    planDescriptionShimmerLayout.visibility = View.INVISIBLE
+                    planDescriptionShimmerLayout.stopShimmer()
                 }
             }
         })

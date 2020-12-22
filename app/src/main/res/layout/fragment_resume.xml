@@ -22,7 +22,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/quicksand_medium"
-            android:text="Hello,"
+            android:text="@string/hi_welcome_msg"
             android:textColor="@color/vivagym_text_blueblack"
             android:textSize="24sp"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -44,9 +44,9 @@
 
         <ImageView
             android:id="@+id/qrView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:contentDescription="QRIcon"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:contentDescription="@string/icono_c_digo_qr"
             android:src="@drawable/ic_qr_code_24"
 
             app:layout_constraintEnd_toEndOf="parent"
@@ -77,17 +77,38 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="@+id/userInfoLayout" />
 
+        <com.facebook.shimmer.ShimmerFrameLayout
+            android:id="@+id/shimmerClubLocation"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            app:layout_constraintStart_toEndOf="@+id/codigoQRDescription"
+            app:layout_constraintTop_toTopOf="@+id/userInfoLayout">
+
+            <View
+                android:id="@+id/clubLocationViewHolder"
+                android:layout_width="150dp"
+                android:layout_height="18dp"
+                android:background="@color/light_gray"
+                app:layout_constraintStart_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="1.0" />
+
+        </com.facebook.shimmer.ShimmerFrameLayout>
+
+
         <TextView
             android:id="@+id/clubLocation"
             android:layout_width="wrap_content"
             android:layout_height="20dp"
             android:layout_marginStart="5dp"
-            tools:text="Embajadores"
+            android:fontFamily="@font/quicksand"
             android:textColor="@color/vivagym_text_blueblack"
             android:textStyle="bold"
-            android:fontFamily="@font/quicksand"
             app:layout_constraintStart_toEndOf="@+id/codigoQRDescription"
-            app:layout_constraintTop_toTopOf="@+id/userInfoLayout" />
+            app:layout_constraintTop_toTopOf="@+id/userInfoLayout"
+            tools:text="Embajadores"
+            tools:visibility="invisible" />
 
         <TextView
             android:id="@+id/withPlanDescription"
@@ -99,18 +120,36 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/codigoQRDescription" />
 
+        <com.facebook.shimmer.ShimmerFrameLayout
+            android:id="@+id/shimmerPlanDescription"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            app:layout_constraintStart_toEndOf="@+id/withPlanDescription"
+            app:layout_constraintTop_toBottomOf="@+id/codigoQRDescription"
+            >
+            <View
+                android:id="@+id/coutaDescriptionViewHolder"
+                android:layout_width="150dp"
+                android:layout_height="18dp"
+                android:background="@color/light_gray"
+                app:layout_constraintStart_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="1.0" />
+        </com.facebook.shimmer.ShimmerFrameLayout>
+
         <TextView
             android:id="@+id/productDescription"
             android:layout_width="wrap_content"
             android:layout_height="20dp"
             android:layout_marginStart="5dp"
-            tools:text="Cuota Platinium Plus"
+            android:fontFamily="@font/quicksand"
             android:textColor="@color/vivagym_text_blueblack"
             android:textStyle="bold"
-            android:fontFamily="@font/quicksand"
-
             app:layout_constraintStart_toEndOf="@+id/withPlanDescription"
-            app:layout_constraintTop_toBottomOf="@+id/codigoQRDescription" />
+            app:layout_constraintTop_toBottomOf="@+id/codigoQRDescription"
+            tools:text="Cuota Platinium Plus"
+            tools:visibility="invisible" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

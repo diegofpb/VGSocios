@@ -23,5 +23,6 @@
     <string name="no_activity_found">It looks like you don\'t have any\nbooked activities. You dare?</string>
     <string name="book_activity">Book new activity</string>
     <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="hi_welcome_msg">Hello!</string>
+    <string name="icono_c_digo_qr">QR Code icon</string>
 </resources>

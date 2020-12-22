@@ -26,7 +26,7 @@ class BookingAdapter(private val bookingList: List<BookingInfo>) :
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
         val cardView = LayoutInflater.from(parent.context)
                 .inflate(R.layout.booking_card_view, parent, false) as CardView
-        this.context = parent.context;
+        this.context = parent.context
         return MyViewHolder(cardView)
     }
 
@@ -34,6 +34,9 @@ class BookingAdapter(private val bookingList: List<BookingInfo>) :
         holder.cardView.bookingTitle.text = bookingList[position].classTypeName?.toLowerCase(Locale.getDefault())?.capitalizeWords()
         holder.cardView.bookingClub.text = bookingList[position].clubDesc
         holder.cardView.bookingDate.text = bookingList[position].bookingDate?.let { getDateString(it) }
+        if (bookingList[position].classTypeName!!.contains("Cycling", ignoreCase = true)){
+          holder.cardView.bookingActivityLogo.setImageResource(R.drawable.cycling_logo)
+        }
         /*holder.cardView.setOnClickListener {
             val userActivityIntent = Intent(this.context, BookingDetailActivity::class.java).apply {
                 putExtra("clubClassId", bookingList[position].clubClassId)
