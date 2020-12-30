@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">VG Members</string>
+    <string name="app_name">VivaGym Members</string>
     <string name="welcome_vivagym">Welcome to VivaGym</string>
     <string name="glad_see_again">We are glad to see you again!</string>
     <string name="email_hint">E-Mail</string>

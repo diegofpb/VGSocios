@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">VG Socios</string>
+    <string name="app_name">VivaGym Socios</string>
     <string name="vivagym_logo">VivaGym Logo</string>
     <string name="email_hint">Correo electrónico</string>
     <string name="password_hint">Contraseña</string>

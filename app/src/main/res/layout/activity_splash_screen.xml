@@ -23,7 +23,7 @@
         android:id="@+id/vg_logo"
         android:layout_width="100dp"
         android:layout_height="100dp"
-        android:src="@drawable/circle_cropped__1_"
+        android:src="@drawable/ic_logo_round"
         app:layout_constraintVertical_bias=".1"
         android:elevation="40dp"
         android:scaleType="centerCrop"

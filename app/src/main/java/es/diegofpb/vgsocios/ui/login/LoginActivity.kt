@@ -10,17 +10,14 @@ import android.view.View
 import android.view.inputmethod.InputMethodManager
 import android.widget.Toast
 import androidx.activity.viewModels
-import androidx.lifecycle.ViewModel
 import androidx.lifecycle.lifecycleScope
-import dagger.hilt.EntryPoint
+import com.google.android.material.snackbar.Snackbar
 import dagger.hilt.android.AndroidEntryPoint
 import es.diegofpb.vgsocios.R
 import es.diegofpb.vgsocios.ui.main.MainActivity
-import es.diegofpb.vgsocios.utils.Resource
 import es.diegofpb.vgsocios.utils.Status
 import kotlinx.android.synthetic.main.activity_login.*
 import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 
 @AndroidEntryPoint
@@ -32,7 +29,6 @@ class LoginActivity : AppCompatActivity() {
         Log.d("LoginActivity", "On create")
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
-
         loginButton.setOnClickListener {
             Log.d("LoginActivity-LoginButton", "Enter - On click")
             lifecycleScope.launch(Dispatchers.Main) {
@@ -61,8 +57,14 @@ class LoginActivity : AppCompatActivity() {
                     Toast.makeText(applicationContext, it.message, Toast.LENGTH_LONG).show()
                 }
                 Status.SUCCESS -> {
+                    if(savePasswordSwitch.isChecked){
+                        viewModel.rememberCredentials(emailText.text.toString(), passwordText.text.toString())
+                    } else {
+                        viewModel.dontRememberCredentials()
+                    }
                     loader.visibility = View.GONE
                     startActivity(Intent(this, MainActivity::class.java))
+                    finish()
                 }
             }
         })

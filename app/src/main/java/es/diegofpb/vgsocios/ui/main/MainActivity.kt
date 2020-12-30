@@ -38,13 +38,4 @@ class MainActivity : AppCompatActivity() {
         return navController.navigateUp() ||super.onSupportNavigateUp()
     }
 
-    override fun onBackPressed() {
-        if (pressedTime + 2000 > System.currentTimeMillis()) {
-            moveTaskToBack(true);
-            exitProcess(-1)
-        } else {
-            Toast.makeText(baseContext, "Pulsa atrás de nuevo para salir.", Toast.LENGTH_SHORT).show()
-        }
-        pressedTime = System.currentTimeMillis()
-    }
 }

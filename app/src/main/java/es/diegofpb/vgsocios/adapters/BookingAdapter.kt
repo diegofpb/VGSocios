@@ -36,6 +36,16 @@ class BookingAdapter(private val bookingList: List<BookingInfo>) :
         holder.cardView.bookingDate.text = bookingList[position].bookingDate?.let { getDateString(it) }
         if (bookingList[position].classTypeName!!.contains("Cycling", ignoreCase = true)){
           holder.cardView.bookingActivityLogo.setImageResource(R.drawable.cycling_logo)
+        } else if (bookingList[position].classTypeName!!.contains("Pump", ignoreCase = true) ||
+            bookingList[position].classTypeName!!.contains("Vivawod", ignoreCase = true)){
+            holder.cardView.bookingActivityLogo.setImageResource(R.drawable.weight_lifter_logo)
+        } else if (bookingList[position].classTypeName!!.contains("Combat", ignoreCase = true)
+            || bookingList[position].classTypeName!!.contains("V-YOGA", ignoreCase = true)
+            || bookingList[position].classTypeName!!.contains("Zumba", ignoreCase = true)
+            || bookingList[position].classTypeName!!.contains("TBC", ignoreCase = true)){
+            holder.cardView.bookingActivityLogo.setImageResource(R.drawable.yoga_logo)
+        } else if (bookingList[position].classTypeName!!.contains("V-STYLE", ignoreCase = true)){
+            holder.cardView.bookingActivityLogo.setImageResource(R.drawable.dance_logo)
         }
         /*holder.cardView.setOnClickListener {
             val userActivityIntent = Intent(this.context, BookingDetailActivity::class.java).apply {

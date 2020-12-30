@@ -31,14 +31,13 @@
             android:layout_height="wrap_content"
             android:ellipsize="end"
             android:fontFamily="@font/quicksand_medium"
-            android:text="Acceso al club"
+            android:text="Acceso"
             android:textColor="@color/white"
             android:textSize="18sp"
+            android:layout_marginStart="5dp"
             app:layout_constraintBottom_toBottomOf="@+id/bookingActivityLogo"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.3"
             app:layout_constraintStart_toEndOf="@+id/bookingActivityLogo"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="@+id/bookingActivityLogo" />
 
 
         <ImageView
@@ -55,10 +54,10 @@
             android:id="@+id/bookingClub"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
             android:ellipsize="end"
             android:fontFamily="@font/quicksand"
             android:text="Gym Club"
-            android:layout_marginStart="5dp"
             android:textColor="@color/white"
             app:layout_constraintBottom_toBottomOf="@+id/bookingClubLocationIcon"
             app:layout_constraintStart_toEndOf="@+id/bookingClubLocationIcon"
@@ -77,14 +76,13 @@
             android:id="@+id/bookingDate"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:fontFamily="@font/quicksand"
-            android:textColor="@color/white"
             android:layout_marginStart="5dp"
+            android:fontFamily="@font/quicksand"
             android:text="dd/MM/YYYY HH:mm"
+            android:textColor="@color/white"
             app:layout_constraintBottom_toBottomOf="@+id/bookingDateIcon"
             app:layout_constraintStart_toEndOf="@+id/bookingDateIcon"
-            app:layout_constraintTop_toTopOf="@+id/bookingDateIcon"
-  />
+            app:layout_constraintTop_toTopOf="@+id/bookingDateIcon" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

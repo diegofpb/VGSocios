@@ -12,6 +12,9 @@ import es.diegofpb.vgsocios.data.remote.repositories.VGRepository
 import es.diegofpb.vgsocios.utils.Constants.VG_USER_CLUB_NO
 import es.diegofpb.vgsocios.utils.Constants.VG_USER_CONTRACT_NO
 import es.diegofpb.vgsocios.utils.Constants.VG_USER_CONTRACT_PERSON_ID
+import es.diegofpb.vgsocios.utils.Constants.VG_USER_MAIL
+import es.diegofpb.vgsocios.utils.Constants.VG_USER_PASS
+import es.diegofpb.vgsocios.utils.Constants.VG_USER_REMEMBER_ME
 import es.diegofpb.vgsocios.utils.Constants.VG_USER_TOKEN
 import es.diegofpb.vgsocios.utils.Resource
 import es.diegofpb.vgsocios.utils.Status
@@ -61,4 +64,15 @@ class LoginViewModel @ViewModelInject constructor(
             Log.d("LoginViewModel-executeLogin-launch", "Out of coroutine")
         }
 
+    fun rememberCredentials(username: String, password: String){
+        sharedPreferences.edit().putBoolean(VG_USER_REMEMBER_ME, true).apply()
+        sharedPreferences.edit().putString(VG_USER_MAIL, username).apply()
+        sharedPreferences.edit().putString(VG_USER_PASS, password).apply()
+    }
+
+    fun dontRememberCredentials() {
+        sharedPreferences.edit().putBoolean(VG_USER_REMEMBER_ME, false).apply()
+        sharedPreferences.edit().remove(VG_USER_MAIL).apply()
+        sharedPreferences.edit().remove(VG_USER_PASS).apply()
+    }
 }
